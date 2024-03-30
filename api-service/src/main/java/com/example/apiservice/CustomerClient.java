@@ -17,8 +17,8 @@ public class CustomerClient {
         this.baseUrl = baseUrl;
     }
 
-    Customer getCustomer(@PathVariable("id") long id) {
-        String url = String.format("%s/customers/%d", baseUrl, id);
+    Customer getCustomer(@PathVariable("id") String id) {
+        String url = String.format("%s/customers/%s", baseUrl, id);
         return restTemplate.getForObject(url, Customer.class);
     }
 }

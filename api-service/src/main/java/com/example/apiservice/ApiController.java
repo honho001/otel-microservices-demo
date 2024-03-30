@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
-public class Controller {
+public class ApiController {
     private CustomerClient customerClient;
     private AddressClient addressClient;
 
-    private final Logger logger = LoggerFactory.getLogger(Controller.class);
+    private final Logger logger = LoggerFactory.getLogger(ApiController.class);
 
     @GetMapping(path = "customers/{id}")
-    public CustomerAndAddress getCustomerWithAddress(@PathVariable("id") long customerId) {
+    public CustomerAndAddress getCustomerWithAddress(@PathVariable("id") String customerId) {
         logger.info("COLLECTING CUSTOMER AND ADDRESS WITH ID {} FROM UPSTREAM SERVICE", customerId);
         Customer customer = customerClient.getCustomer(customerId);
         Address address = addressClient.getAddressForCustomerId(customerId);

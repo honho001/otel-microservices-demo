@@ -4,11 +4,15 @@ import lombok.Data;
 
 @Data
 public class CustomerAndAddress {
-    private Customer customer;
-    private Address address;
+    private String name;
+    private String age;
+    private String street;
+    private String city;
 
     public CustomerAndAddress(Customer customer, Address address) {
-        this.customer = customer;
-        this.address = address;
+        this.name = customer.getName();
+        this.age = customer.getAge();
+        this.street = address.getStreet();
+        this.city = address.getCity();
     }
 }

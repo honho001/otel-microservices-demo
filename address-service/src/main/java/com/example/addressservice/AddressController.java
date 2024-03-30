@@ -14,7 +14,7 @@ public class AddressController {
     private final Logger logger = LoggerFactory.getLogger(AddressController.class);
 
     @GetMapping(path = "addresses/{id}")
-    public ResponseEntity<Address> getAddress(@PathVariable("id") long customerId) {
+    public ResponseEntity<Address> getAddress(@PathVariable("id") String customerId) {
         logger.info("GETTING ADDRESS FOR CUSTOMER WITH ID {}", customerId);
         Address address = new Address("9DAILVA", "4SSJ9S8", "123 Vo Nguyen Giap", "Da Nang");
         return new ResponseEntity<>(address, HttpStatus.OK);

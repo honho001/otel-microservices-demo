@@ -19,8 +19,8 @@ public class AddressClient {
         this.baseUrl = baseUrl;
     }
 
-    Address getAddressForCustomerId(@PathVariable("id") long id) {
-        String url = String.format("%s/address/%d", baseUrl, id);
+    Address getAddressForCustomerId(@PathVariable("id") String id) {
+        String url = String.format("%s/addresses/%s", baseUrl, id);
         return restTemplate.getForObject(url, Address.class);
     }
 }
