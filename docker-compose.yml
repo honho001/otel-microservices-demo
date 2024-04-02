@@ -14,7 +14,7 @@ services:
 
   address-service:
     build: ./address-service/
-    image: customer-service:latest
+    image: address-service:latest
     ports:
       - "8082:8082"
 
